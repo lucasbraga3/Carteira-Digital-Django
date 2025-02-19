@@ -29,7 +29,7 @@ class Command(BaseCommand):
             )
 
             # Create a wallet for the user
-            UserWallet.objects.create(user=user, balance=random.randint(100, 10000))
+            UserWallet.objects.create(user=user, saldo=random.randint(100, 10000))
 
         self.stdout.write("Created 10 users and wallets.")
 
@@ -40,11 +40,9 @@ class Command(BaseCommand):
             to_wallet = random.choice(wallets.exclude(id=from_wallet.id))
             amount = random.randint(10, 1000)
             Transaction.objects.create(
-                from_wallet=from_wallet,
-                to_wallet=to_wallet,
-                amount=amount,
-                status='completed',
-                description=fake.sentence()
+                recipiente=from_wallet,
+                destinatario=to_wallet,
+                quantidade=amount,
             )
 
         self.stdout.write("Created 50 transactions.")
