@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from django.db import transaction
-from models import UserWallet, Transaction
-from serializers import UserWalletSerializer, TransactionSerializer
+from .models import UserWallet, Transaction
+from .serializers import UserWalletSerializer, TransactionSerializer
 # Create your views here.
 
 class DetalhesWalletView(APIView):
